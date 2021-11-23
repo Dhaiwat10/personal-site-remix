@@ -1,39 +1,80 @@
-import type { MetaFunction } from 'remix';
+import { MetaFunction, LinksFunction, Link } from 'remix';
 
 // https://remix.run/api/conventions#meta
 export let meta: MetaFunction = () => {
   return {
-    title: 'Remix Vercel barebones starter',
-    description: 'Welcome to remix!',
+    title: 'Dhaiwat Pandya - Software Engineer',
+    description:
+      'I am Dhaiwat, a 21-year-old software engineer from Surat, India.',
+    'og:image': '/thumb.png',
+    charset: 'utf-8',
+    'twitter:card': 'summary_large_image',
+    'twitter:site': '@dhaiwat10',
+    'twitter:creator': '@dhaiwat10',
+    'twitter:title': 'Dhaiwat Pandya - Software Engineer',
+    'twitter:description':
+      'I am Dhaiwat, a 21-year-old software engineer from Surat, India.',
+    // this should be a whole link
+    'twitter:image': '/thumb.png',
   };
 };
+
+export let links: LinksFunction = () => {
+  return [
+    {
+      rel: 'icon',
+      href: '/favicon-16x16.png',
+    },
+  ];
+};
+
+function ExternalLink({ href, label }: { href: string; label: string }) {
+  return (
+    <a href={href} target='_blank' rel='noopener noreferrer'>
+      {label}
+    </a>
+  );
+}
 
 // https://remix.run/guides/routing#index-routes
 export default function Index() {
   return (
-    <div className='remix__page'>
-      <main>
-        <h2>Welcome to Remix!</h2>
+    <div className='container'>
+      <main className='home__main'>
+        <img className='avi' src='avi.jpeg' />
+        <h2>Dhaiwat Pandya</h2>
+        <p>Software engineer.</p>
+        <p>
+          Building open source software with{' '}
+          <ExternalLink
+            href='https://twitter.com/developer_dao'
+            label='Developer DAO'
+          />{' '}
+          and{' '}
+          <ExternalLink
+            href='https://twitter.com/moonshotcollect'
+            label='
+            the Moonshot Collective'
+          />
+          .
+        </p>
+        <ExternalLink href='https:/github.com/dhaiwat10' label='Github' /> |{' '}
+        <ExternalLink href='https://twitter.com/dhaiwat10' label='Twitter' />
         <hr />
-        <h3>Local development</h3>
-        <ol>
+        <h2>Blog posts</h2>
+        <ul>
           <li>
-            <code>vercel dev</code>
+            <Link to='/posts/hello-world'>
+              Developing and testing React components in isolation
+            </Link>
           </li>
+
           <li>
-            <code>npm run dev</code>
+            <Link to='/posts/become-better-writer'>
+              Becoming a better writer as a developer
+            </Link>
           </li>
-        </ol>
-        <hr />
-        <h3>Deployment</h3>
-        <ol>
-          <li>
-            <code>npm run build</code>
-          </li>
-          <li>
-            <code>vercel --prod</code>
-          </li>
-        </ol>
+        </ul>
       </main>
     </div>
   );
