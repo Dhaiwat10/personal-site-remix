@@ -64,7 +64,7 @@ export default function Index() {
         <h2>Blog posts</h2>
         <ul>
           <li>
-            <Link to='/posts/hello-world'>
+            <Link to='/posts/develop-test-react-component-isolation'>
               Developing and testing React components in isolation
             </Link>
           </li>
