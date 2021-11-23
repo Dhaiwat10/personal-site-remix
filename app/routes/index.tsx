@@ -6,7 +6,7 @@ export let meta: MetaFunction = () => {
     title: 'Dhaiwat Pandya - Software Engineer',
     description:
       'I am Dhaiwat, a 21-year-old software engineer from Surat, India.',
-    'og:image': '/thumb.png',
+    'og:image': 'https://staging.dhaiwat.com/thumb.png',
     charset: 'utf-8',
     'twitter:card': 'summary_large_image',
     'twitter:site': '@dhaiwat10',
@@ -15,7 +15,7 @@ export let meta: MetaFunction = () => {
     'twitter:description':
       'I am Dhaiwat, a 21-year-old software engineer from Surat, India.',
     // this should be a whole link
-    'twitter:image': '/thumb.png',
+    'twitter:image': 'https://staging.dhaiwat.com/thumb.png',
   };
 };
 
